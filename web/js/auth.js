@@ -1,6 +1,6 @@
 // Pantallas de ingreso: iniciar sesión, crear cuenta, olvidé mi contraseña y elegir una nueva.
-import { $, esc } from "./util.js?v=18";
-import { api } from "./api.js?v=18";
+import { $, esc } from "./util.js?v=19";
+import { api } from "./api.js?v=19";
 
 const pwdField = (id, label, autocomplete) => `<div class="field"><label class="label" for="${id}">${label}</label>
   <div class="pwd"><input id="${id}" type="password" autocomplete="${autocomplete}" required minlength="8"><button type="button" data-show="${id}">Ver</button></div></div>`;

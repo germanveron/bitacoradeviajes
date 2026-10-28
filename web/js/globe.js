@@ -5,8 +5,8 @@
 // el mapa detallado, se proyecta en un shader ortográfico); sobre ella un canvas 2D transparente dibuja solo pines y
 // nombres. Si el teléfono no soporta WebGL2 se usa el dibujo 2D de siempre. Dibujo agrupado en un requestAnimationFrame,
 // el brillo vive en un elemento aparte y todo se pausa fuera de pantalla.
-import { cssVar, tcolorVar, reducedMotion } from "./util.js?v=18";
-import { geo, mainland } from "./geo.js?v=18";
+import { cssVar, tcolorVar, reducedMotion } from "./util.js?v=19";
+import { geo, mainland } from "./geo.js?v=19";
 const d3 = window.d3;
 
 export function createGlobe(canvas, { gl: glCanvas, grab, onCountry, onPlace }) {

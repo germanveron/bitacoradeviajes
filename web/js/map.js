@@ -1,6 +1,6 @@
 // Mapa plano (SVG + D3): país → región con pines y etiquetas; y mapa de ruta de un viaje.
-import { cssVar, tcolor, isMobile } from "./util.js?v=18";
-import { geo, mainland, countryFeature, REGION_ALIAS } from "./geo.js?v=18";
+import { cssVar, tcolor, isMobile } from "./util.js?v=19";
+import { geo, mainland, countryFeature, REGION_ALIAS } from "./geo.js?v=19";
 const d3 = window.d3;
 
 const W = 960, H = 600, PS = 0.78;

@@ -1,6 +1,6 @@
 // Fotos: compresión en el cliente y subida con progreso.
-import { api } from "./api.js?v=18";
-import { toast } from "./util.js?v=18";
+import { api } from "./api.js?v=19";
+import { toast } from "./util.js?v=19";
 
 // Reduce a 2000 px y JPEG 85 %: fotos de celular de 6 MB bajan a ~400 KB.
 async function shrink(file) {

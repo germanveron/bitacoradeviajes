@@ -1,5 +1,5 @@
 // Service worker mínimo: guarda el "cascarón" de la app para abrir rápido; los datos siempre vienen de la red.
-const CACHE = "bitacora-v2";
+const CACHE = "bitacora-v3";
 const SHELL = ["/", "index.html", "css/app.css", "js/app.js", "js/auth.js", "js/api.js", "js/geo.js", "js/globe.js", "js/map.js", "js/photos.js", "js/trips.js", "js/util.js", "icon.svg"];
 
 self.addEventListener("install", e => e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting())));

@@ -1,13 +1,13 @@
 // Bitácora de viajes: cuenta y perfiles, pestañas Inicio (globo + mapa), Viajes, Eventos, Stats y hojas de detalle/alta.
-import { $, $$, norm, esc, fmtDate, toast, TIPOS, tcolor, isDate, plural, initial, pref } from "./util.js?v=18";
-import { api, setProfile, photoUrl } from "./api.js?v=18";
-import { geo, loadGeo, enrich, countryAt, computeStats, continentOf, TOTAL_COUNTRIES } from "./geo.js?v=18";
-import { createGlobe, startMiniGlobe } from "./globe.js?v=18";
-import { createFlatMap, drawTrip } from "./map.js?v=18";
-import { deriveTrips } from "./trips.js?v=18";
-import { uploadPhotos } from "./photos.js?v=18";
-import { cropAvatar } from "./cropper.js?v=18";
-import { showAuth } from "./auth.js?v=18";
+import { $, $$, norm, esc, fmtDate, toast, TIPOS, tcolor, isDate, plural, initial, pref } from "./util.js?v=19";
+import { api, setProfile, photoUrl } from "./api.js?v=19";
+import { geo, loadGeo, enrich, countryAt, computeStats, continentOf, TOTAL_COUNTRIES } from "./geo.js?v=19";
+import { createGlobe, startMiniGlobe } from "./globe.js?v=19";
+import { createFlatMap, drawTrip } from "./map.js?v=19";
+import { deriveTrips } from "./trips.js?v=19";
+import { uploadPhotos } from "./photos.js?v=19";
+import { cropAvatar } from "./cropper.js?v=19";
+import { showAuth } from "./auth.js?v=19";
 const d3 = window.d3;
 
 const LIMIT = 14; // lugares visibles antes de "Ver más"
@@ -134,7 +134,9 @@ function flagOrder() {
 
 const kindLabel = kind => (kind === "shared" ? "Compartido" : "Individual");
 function renderHeader() {
-  $("#avatarDot").innerHTML = me?.avatar ? `<img src="${photoUrl(me.avatar)}" alt="">` : esc(initial(me?.name));
+  // En un perfil compartido todos ven la misma foto: la de quien lo creó. En el individual, la propia.
+  const p = profile(), av = p?.kind === "shared" ? (p.ownerAvatar || me?.avatar) : me?.avatar;
+  $("#avatarDot").innerHTML = av ? `<img src="${photoUrl(av)}" alt="">` : esc(initial(me?.name));
   $("#hello").textContent = me ? `¡Hola, ${me.name.trim().split(/\s+/)[0]}!` : "";
   $("#profType").textContent = profile() ? kindLabel(profile().kind) : "";
 }

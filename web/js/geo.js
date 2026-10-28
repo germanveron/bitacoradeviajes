@@ -1,5 +1,5 @@
 // Capa geográfica: países, regiones, continentes y estadísticas "tipo Been".
-import { norm } from "./util.js?v=18";
+import { norm } from "./util.js?v=19";
 const d3 = window.d3, topojson = window.topojson;
 
 export const geo = { world: [], worldLite: [], regions: [], byA2: {}, nameToA2: {}, idToA2: {}, a2ToId: {}, countryName: {}, ready: false };

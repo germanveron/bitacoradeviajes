@@ -1,7 +1,7 @@
 // Viajes derivados de las fechas (estilo Polarsteps): lugares con pocos días de diferencia = un viaje.
 // Los lugares sin fecha se agrupan por país para no perderlos.
-import { geo } from "./geo.js?v=18";
-import { MESES, isDate } from "./util.js?v=18";
+import { geo } from "./geo.js?v=19";
+import { MESES, isDate } from "./util.js?v=19";
 const d3 = window.d3;
 
 const GAP_DAYS = 4;

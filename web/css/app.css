@@ -1,7 +1,7 @@
 /* Bitácora de viajes. Contraste a lo Polarsteps: un mundo oscuro arriba y una hoja crema que se desliza encima.
    Un solo tema (claro/crema); el globo es oscuro a propósito. */
 :root{
-  color-scheme:light;
+  color-scheme:only light;
   --space:#07121c; --space-2:#0d2236;
   --bg:#f8f4ec; --surface:#ffffff; --ink:#12262f; --muted:#66767a; --line:#e7e0d3;
   --land:#e6e1d5; --land-line:#cfc8b8; --accent:#0b6e69; --accent-soft:#b7ddd6; --accent-ink:#ffffff;

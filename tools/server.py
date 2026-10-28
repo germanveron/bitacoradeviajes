@@ -84,7 +84,9 @@ def profiles_for(user_id):
         out = []
         for r in rows:
             n = db.execute("SELECT COUNT(*) c FROM members WHERE profile_id=?", (r["id"],)).fetchone()["c"]
+            owner = db.execute("SELECT avatar FROM users WHERE id=?", (r["owner_id"],)).fetchone()
             out.append({"id": r["id"], "name": r["name"], "kind": r["kind"], "role": r["role"],
+                        "ownerAvatar": owner["avatar"] if owner else None,
                         "paisesOrden": json.loads(r["paises_orden"]), "members": n})
     return out
 
