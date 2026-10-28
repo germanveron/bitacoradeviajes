@@ -198,9 +198,12 @@ def forgot(data: ForgotIn, request: Request):
                 token = auth.new_token()
                 db.execute("INSERT INTO resets VALUES(?,?,?,0)", (auth.token_hash(token), u["id"], __import__("time").time() + auth.RESET_MINUTES * 60))
                 link = f"{base_url(request)}/?reset={token}"
-                auth.send_mail(email, "Restablecer tu contraseña · Bitácora de viajes",
-                               f"Hola {u['name']},\n\nPara elegir una contraseña nueva entrá a este link (vale {auth.RESET_MINUTES} minutos):\n{link}\n\n"
-                               "Si no lo pediste vos, ignorá este mail: tu contraseña sigue igual.")
+                try:
+                    auth.send_mail(email, "Restablecer tu contraseña · Bitácora de viajes",
+                                   f"Hola {u['name']},\n\nPara elegir una contraseña nueva entrá a este link (vale {auth.RESET_MINUTES} minutos):\n{link}\n\n"
+                                   "Si no lo pediste vos, ignorá este mail: tu contraseña sigue igual.")
+                except Exception as e:  # no se revela al usuario si el mail existe o no
+                    print("mail: no se pudo enviar el restablecimiento:", type(e).__name__, e, flush=True)
     return {"ok": True}
 
 
@@ -331,9 +334,13 @@ def invite(pid: str, data: InviteIn, request: Request, user=Depends(current_user
         db.execute("DELETE FROM invites WHERE profile_id=? AND email=? AND accepted=0", (pid, email))
         db.execute("INSERT INTO invites VALUES(?,?,?,?,?,?,0)", (auth.new_uid("inv"), pid, email, auth.token_hash(token), user["id"], auth.now_iso()))
     link = f"{base_url(request)}/?invite={token}"
-    auth.send_mail(email, f"{user['name']} te invitó a “{p['name']}” · Bitácora de viajes",
-                   f"Hola,\n\n{user['name']} te invitó a sumar y ver viajes en el perfil compartido “{p['name']}”.\n\n"
-                   f"Entrá con este link (creá tu cuenta con este mismo email si todavía no tenés una):\n{link}\n")
+    try:
+        auth.send_mail(email, f"{user['name']} te invitó a “{p['name']}” · Bitácora de viajes",
+                       f"Hola,\n\n{user['name']} te invitó a sumar y ver viajes en el perfil compartido “{p['name']}”.\n\n"
+                       f"Entrá con este link (creá tu cuenta con este mismo email si todavía no tenés una):\n{link}\n")
+    except Exception as e:  # SMTP caído o mal configurado: se avisa en vez de dar un error genérico
+        print("mail: no se pudo enviar la invitación:", type(e).__name__, e, flush=True)
+        raise HTTPException(502, "No pude enviar el mail de invitación. Probá de nuevo en unos minutos.")
     return {"ok": True}
 
 
