@@ -1,0 +1,10 @@
+.env
+.tmp/
+credentials.json
+token.json
+__pycache__/
+*.pyc
+.venv/
+
+# Datos locales de desarrollo
+data_local/

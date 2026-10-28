@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "skills": {
+    "design-md": {
+      "source": "aisdkagents.com",
+      "sourceUrl": "https://www.aisdkagents.com/skill/design-md",
+      "sourceType": "well-known",
+      "computedHash": "d4751a81ccae3f07a8a43de484bba914b5355fd9cb2744a8dfb01029fcc1f8e5",
+      "wellKnownDigest": "sha256:ec4617b102508f2d000ec27f5e9f43d235c2e335368258ea3286673bc8a5f624"
+    },
+    "frontier-interview": {
+      "source": "aisdkagents.com",
+      "sourceUrl": "https://www.aisdkagents.com/skill/frontier-interview",
+      "sourceType": "well-known",
+      "computedHash": "e31ab538cc167aa3032ffa5ce83561a53cc1dc9b245fa684e42cf062ca4d5d1a",
+      "wellKnownDigest": "sha256:fedff75f35d70c83cfff288582c6ed52f839dc64ae1d24ebefcbb50f2b8745ea"
+    }
+  }
+}

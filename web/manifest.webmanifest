@@ -1,0 +1,11 @@
+{
+  "name": "Bitácora de viajes",
+  "short_name": "Bitácora",
+  "description": "Tu bitácora de viajes: mapa, lugares, fotos y eventos",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8f4ec",
+  "theme_color": "#07121c",
+  "lang": "es",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}

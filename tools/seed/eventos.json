@@ -1,0 +1,32 @@
+[
+ {
+  "titulo": "Legoland",
+  "emoji": "🧱",
+  "fecha": "",
+  "lugar": "Günzburg",
+  "pais": "Alemania",
+  "notas": "",
+  "fotos": [],
+  "id": "e-001"
+ },
+ {
+  "titulo": "Oktoberfest 2026",
+  "emoji": "🍺",
+  "fecha": "",
+  "lugar": "Múnich",
+  "pais": "Alemania",
+  "notas": "",
+  "fotos": [],
+  "id": "e-002"
+ },
+ {
+  "titulo": "Neuschwanstein",
+  "emoji": "🏰",
+  "fecha": "",
+  "lugar": "Schwangau",
+  "pais": "Alemania",
+  "notas": "",
+  "fotos": [],
+  "id": "e-003"
+ }
+]

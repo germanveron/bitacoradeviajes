@@ -1,0 +1,9 @@
+.venv
+.env
+.tmp
+.git
+.agents
+.claude
+data_local
+__pycache__
+*.pyc
